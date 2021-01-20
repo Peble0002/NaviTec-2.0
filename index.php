@@ -1,20 +1,21 @@
 <?php
 
 require "conexion.php";
+session_start();
+
 if($_POST){
-    $username = $_POST['user'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT username, password, name, user_type FROM users WHERE user = '$username'";
-
+    $sql = "SELECT name, password, username, user_type FROM users WHERE username = '$username'";
     $resultado = $mysqli->query($sql);
     $num = $resultado->num_rows;
 
-    if($num){
+    if($num>0){
         $row = $resultado->fetch_assoc();
         $password_bd = $row['password'];
 
-        $pass_c = sha1('password');
+        $pass_c = sha1($password);
 
         if($password_bd == $pass_c){
 
@@ -45,8 +46,8 @@ if($_POST){
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Page Title - SB Admin</title>
+        <meta name="author" content="Pedro, Pablo y Esteban" />
+        <title>NaviTEC</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -62,8 +63,8 @@ if($_POST){
                                     <div class="card-body">
                                         <form method = "POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
                                             <div class="form-group">
-                                                <label class="small mb-1" for="inputEmailAddress">User</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" name= "user" type="text" placeholder="Enter email address" />
+                                                <label class="small mb-1" for="inputEmailAddress">Username</label>
+                                                <input class="form-control py-4" id="inputEmailAddress" name= "username" type="text" placeholder="Enter email address" />
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputPassword">Password</label>
@@ -77,7 +78,8 @@ if($_POST){
                                             </div>
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="password.html">Forgot Password?</a>
-                                                <a class="btn btn-primary" href="index.html">Login</a>
+                                                <button type = "submit" class="btn btn-primary">
+                                                Login</button>
                                             </div>
                                         </form>
                                     </div>
