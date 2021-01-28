@@ -1,151 +1,151 @@
 <?php
-
-    require "conexion.php";
-    //start_session();
-
-    $errors = array();
-
-    if(!empty($_POST)){
-        $name = $mysqli->real_escape_string($_POST);
-    }
-
-
-
+include("conexion.php");
 ?>
 
-<!DOCTYPE html>
+
+
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Registro</title>
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-    </head>
-    <body class="bg-primary">
-        <div id="layoutAuthentication">
-            <div id="layoutAuthentication_content">
-                <main>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-14">Create Account</h3></div>
-                                    <div class="card-body">
-                                        <form method = "POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputFirstName">First Name</label>
-                                                        <input class="form-control py-4" id="inputFirstName" type="text" placeholder="Enter first name" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputLastName">Last Name</label>
-                                                        <input class="form-control py-4" id="inputLastName" type="text" placeholder="Enter last name" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputUsername">Username</label>
-                                                        <input class="form-control py-4" id="inputUsername" type="text" placeholder="Enter username" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputID">ID</label>
-                                                        <input class="form-control py-4" id="inputID" type="text" placeholder="Enter ID" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputBirthdate">inputBirthdate</label>
-                                                        <input class="form-control py-4" id="inputBirthdate" type="text" placeholder="Enter Birthdate" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inpuProvince">Province</label>
-                                                        <input class="form-control py-4" id="inputProvince" type="text" placeholder="Enter Province" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputCanton">Canton</label>
-                                                        <input class="form-control py-4" id="inputCanton" type="text" placeholder="Enter Canton" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputDistrict">District</label>
-                                                        <input class="form-control py-4" id="inputDistrict" type="text" placeholder="Enter District" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputAddress">Address</label>
-                                                        <input class="form-control py-4" id="inputAddress" type="text" placeholder="Enter Address" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-6" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" />
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputPassword">Password</label>
-                                                        <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputPhone">Phone</label>
-                                                        <input class="form-control py-4" id="inputPhone" type="password" placeholder="Enter phone" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" href="login.html">Create Account</a></div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <div class="small"><a href="login.html">Have an account? Go to login</a></div>
-                                    </div>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Registration Form</title>
+    
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="col" id="notification">
+                    <?php //echo $message_alert; ?>
+                </div>
+                <div class="regForm">
+                    <h1>Registration</h1>
+                    <form action="<?php $_SERVER['PHP_SELF'];?>" method="POST">
+                        <div class="form-group">
+                            <label> Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Enter Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Last name</label>
+                            <input type="text" class="form-control" name="lastname1" placeholder="Enter Last Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Second last name</label>
+                            <input type="text" class="form-control" name="lastname1" placeholder="Enter Second Last Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id" placeholder="Enter ID" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Country</label>
+                            <input type="text" class="form-control" name="country" placeholder="Enter Country" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Province</label>
+                            <input type="text" class="form-control" name="province" placeholder="Enter Province" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Canton</label>
+                            <input type="text" class="form-control" name="canton" placeholder="Enter Canton" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>District</label>
+                            <input type="text" class="form-control" name="district" placeholder="Enter District" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="address" class="form-control" name="address" placeholder="Enter Address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="Enter Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="date" class="form-control" name="dob" required>
+                        </div>
+                        
+                        <!--<div class="form-group">
+                            <label>Designation</label>
+                            <select class="form-control" name="designation" required>
+                                <option>--Select--</option>
+                                <option value="Student">Student</option>
+                                <option value="Teacher">Teacher</option>
+                                <option value="Doctor">Doctor</option>
+                                <option value="Engineer">Engineer</option>
+                                <option value="Scientist">Scientist</option>
+                                <option value="Others" selected>Others</option>
+                            </select>
+                        </div>
+                        
+                        <fieldset class="form-group">
+                            <div class="row">
+                              <legend class="col-form-label col-sm-2 pt-0">Languages Known</legend>
+                              <div class="col-sm-10">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" name="languages[]" value="English" checked>
+                                  <label class="form-check-label">English</label>
                                 </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" name="languages[]" value="French">
+                                  <label class="form-check-label">French</label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" name="languages[]" value="German">
+                                  <label class="form-check-label">German</label>
+                                </div>
+                              </div>
                             </div>
+                        </fieldset>-->
+                        
+                        <!--<div class="form-group">
+                            <label>Bio</label>
+                            <textarea class="form-control" rows="3" name="bio" placeholder="Write Something about yourself..." required></textarea>
+                        </div>-->
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Enter Password" maxlength="15" required>
                         </div>
-                    </div>
-                </main>
-            </div>
-            <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; NaviTEC 2020</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" class="form-control" name="confirmPassword" placeholder="Re-enter Password" maxlength="15" required>
                         </div>
-                    </div>
-                </footer>
+                        <button type="submit" class="btn btn-primary" name="register">Register</button>
+                    </form>
+                </div>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-    </body>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+              integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+              crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript">
+      $(document).ready( function() {
+        $('#notification').delay(3000).fadeOut();
+      });
+    </script>
+  </body>
 </html>
