@@ -181,7 +181,7 @@
                             <div class="card-header"><i class="fas fa-table mr-1"></i>DataTable Example</div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    
+  
 								</div>
 							</div>
 						</div>
@@ -190,7 +190,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                            <div class="text-muted">Copyright &copy; Your Website 2019</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

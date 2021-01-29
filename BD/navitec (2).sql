@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
-<<<<<<< HEAD
--- Tiempo de generación: 22-01-2021 a las 08:28:59
-=======
--- Tiempo de generación: 21-01-2021 a las 09:37:20
->>>>>>> master
+-- Tiempo de generación: 28-01-2021 a las 03:47:44
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
@@ -47,49 +43,49 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_child` (IN `i` INT(250))  BEGIN
 
-DELETE FROM `child` WHERE i;
+DELETE FROM `child` WHERE ID = i;
 
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_heper` (IN `i` INT(250))  BEGIN
 
-DELETE FROM `santa's_helper` WHERE i;
+DELETE FROM `santa's_helper` WHERE ID = i;
 
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_toy` (IN `i` INT(250))  BEGIN
 
-DELETE FROM `toy` WHERE i;
+DELETE FROM `toy` WHERE ID = i;
 
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_toy_category` (IN `i` INT(250))  BEGIN
 
-DELETE FROM `toy_category` WHERE i;
+DELETE FROM `toy_category` WHERE ID = i;
 
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `read_child` (IN `i` INT(250))  BEGIN
 
-SELECT * FROM `child` WHERE  i;
+SELECT * FROM `child` WHERE  ID = i;
 
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `read_helper` (IN `i` INT(250))  BEGIN
 
-SELECT * FROM `santa's_helper` WHERE i;
+SELECT * FROM `santa's_helper` WHERE ID = i;
 
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `read_toy` (IN `i` INT(250))  BEGIN
 
-SELECT * FROM `toy` WHERE i;
+SELECT * FROM `toy` WHERE ID = i;
 
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `read_toy_category` (IN `i` INT(250))  BEGIN
 
-SELECT * FROM `toy_category` WHERE i;
+SELECT * FROM `toy_category` WHERE ID = i;
 
 END$$
 
@@ -131,104 +127,10 @@ CREATE TABLE `attended_letter` (
   `date` date NOT NULL,
   `total_cost` int(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-<<<<<<< HEAD
-
--- --------------------------------------------------------
-=======
->>>>>>> master
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `behavior report`
---
-
-CREATE TABLE `behavior report` (
-  `ID` int(50) NOT NULL,
-  `description` text NOT NULL,
-  `date` date NOT NULL,
-  `kind_behavior` varchar(250) NOT NULL,
-  `child_ID` int(50) NOT NULL,
-  `parent_ID` int(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `canton/city`
---
-
-CREATE TABLE `canton/city` (
-  `country_code` int(50) NOT NULL,
-  `province_code` int(50) NOT NULL,
-  `code` int(50) NOT NULL,
-  `name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `child`
---
-
-CREATE TABLE `child` (
-  `ID` int(50) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `lastname_1` varchar(100) NOT NULL,
-  `lastname_2` varchar(100) NOT NULL,
-  `email` varchar(250) NOT NULL,
-  `birthdate` date NOT NULL,
-  `special_needs` text NOT NULL,
-  `parent_ID` int(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `child_address`
---
-
-CREATE TABLE `child_address` (
-  `child_ID` int(50) NOT NULL,
-  `country_code` int(50) NOT NULL,
-  `province_code` int(50) NOT NULL,
-  `canton_code` int(50) NOT NULL,
-  `exact_address` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `country`
---
-
-CREATE TABLE `country` (
-  `code` int(50) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `tel_prefix` int(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `new_toy`
---
-
-CREATE TABLE `new_toy` (
-  `ID` int(50) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `description` text NOT NULL,
-  `photo` varchar(250) NOT NULL,
-  `category_ID` int(50) NOT NULL,
-  `letter_ID` int(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `parent`
---
-<<<<<<< HEAD
 -- Estructura de tabla para la tabla `behavior report`
 --
 
@@ -327,48 +229,12 @@ CREATE TABLE `parent` (
   `Birthdate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `parent_address`
+-- Volcado de datos para la tabla `parent`
 --
 
-CREATE TABLE `parent_address` (
-  `parent_ID` int(100) NOT NULL,
-  `country_code` int(50) NOT NULL,
-  `province_code` int(50) NOT NULL,
-  `canton_code` int(50) NOT NULL,
-  `exact_address` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `parent_phonelist`
---
-
-CREATE TABLE `parent_phonelist` (
-  `phone_number` int(8) NOT NULL,
-  `ID` int(11) NOT NULL,
-  `parent_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `requested_toy`
---
-
-=======
-
-CREATE TABLE `parent` (
-  `ID` int(100) NOT NULL,
-  `Name` varchar(100) NOT NULL,
-  `Last_name_1` varchar(100) NOT NULL,
-  `Last_name_2` varchar(100) NOT NULL,
-  `email` varchar(250) NOT NULL,
-  `Birthdate` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `parent` (`ID`, `Name`, `Last_name_1`, `Last_name_2`, `email`, `Birthdate`) VALUES
+(1, 'Juan', 'Pérez', 'Soto', 'juanperez2345@gmail.com', '2021-01-05');
 
 -- --------------------------------------------------------
 
@@ -402,7 +268,6 @@ CREATE TABLE `parent_phonelist` (
 -- Estructura de tabla para la tabla `requested_toy`
 --
 
->>>>>>> master
 CREATE TABLE `requested_toy` (
   `letter_ID` int(50) NOT NULL,
   `toy_ID` int(50) NOT NULL,
@@ -466,6 +331,13 @@ CREATE TABLE `toy` (
   `category_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `toy`
+--
+
+INSERT INTO `toy` (`ID`, `name`, `description`, `cost`, `age_range`, `photo`, `category_ID`) VALUES
+(1, 'Firestation car', 'A car that emulates the car of a fireman', 12500, 1, 'Fotografía.png', 4);
+
 -- --------------------------------------------------------
 
 --
@@ -478,7 +350,6 @@ CREATE TABLE `toy_category` (
   `description` text NOT NULL,
   `state` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-<<<<<<< HEAD
 
 --
 -- Volcado de datos para la tabla `toy_category`
@@ -494,8 +365,6 @@ INSERT INTO `toy_category` (`ID`, `name`, `description`, `state`) VALUES
 (7, 'ELECTRONICS', 'The term \"Electronic toy\" could be defined as a preprogrammed playful device that needs electricity (whether it be mains, batteries, batteries, etc.) in order to function.', 'ACTIVE'),
 (8, 'CRAFTS', 'didactic tasks in which a personal advancement, development of creativity, and are a form of recreation is sought.', 'ACTIVE'),
 (9, 'BOOKS', 'Childrens literature is understood to be the literature directed towards the child reader, that is, the set of literary texts that society has considered suitable for the little ones because they can understand and enjoy it, as well as all the texts adopted by the most readers. young as their own', 'ACTIVE');
-=======
->>>>>>> master
 
 --
 -- Índices para tablas volcadas
@@ -517,7 +386,6 @@ ALTER TABLE `behavior report`
   ADD KEY `parent_ID` (`parent_ID`);
 
 --
-<<<<<<< HEAD
 -- Indices de la tabla `canton/city`
 --
 ALTER TABLE `canton/city`
@@ -526,8 +394,6 @@ ALTER TABLE `canton/city`
   ADD KEY `province_code` (`province_code`);
 
 --
-=======
->>>>>>> master
 -- Indices de la tabla `child`
 --
 ALTER TABLE `child`
@@ -545,11 +411,7 @@ ALTER TABLE `child_address`
 -- Indices de la tabla `country`
 --
 ALTER TABLE `country`
-<<<<<<< HEAD
   ADD PRIMARY KEY (`code`);
-=======
-  ADD KEY `code` (`code`);
->>>>>>> master
 
 --
 -- Indices de la tabla `new_toy`
@@ -599,7 +461,6 @@ ALTER TABLE `santa's_helper`
   ADD PRIMARY KEY (`ID`);
 
 --
-<<<<<<< HEAD
 -- Indices de la tabla `state/province`
 --
 ALTER TABLE `state/province`
@@ -607,8 +468,6 @@ ALTER TABLE `state/province`
   ADD KEY `country_code` (`country_code`);
 
 --
-=======
->>>>>>> master
 -- Indices de la tabla `toy`
 --
 ALTER TABLE `toy`
@@ -640,7 +499,6 @@ ALTER TABLE `behavior report`
   ADD CONSTRAINT `behavior report_ibfk_2` FOREIGN KEY (`parent_ID`) REFERENCES `parent` (`ID`) ON UPDATE CASCADE;
 
 --
-<<<<<<< HEAD
 -- Filtros para la tabla `canton/city`
 --
 ALTER TABLE `canton/city`
@@ -648,8 +506,6 @@ ALTER TABLE `canton/city`
   ADD CONSTRAINT `canton/city_ibfk_2` FOREIGN KEY (`province_code`) REFERENCES `state/province` (`code`) ON UPDATE CASCADE;
 
 --
-=======
->>>>>>> master
 -- Filtros para la tabla `child`
 --
 ALTER TABLE `child`
@@ -688,15 +544,12 @@ ALTER TABLE `santa's letter`
   ADD CONSTRAINT `santa's letter_ibfk_1` FOREIGN KEY (`child_ID`) REFERENCES `child` (`ID`) ON UPDATE CASCADE;
 
 --
-<<<<<<< HEAD
 -- Filtros para la tabla `state/province`
 --
 ALTER TABLE `state/province`
   ADD CONSTRAINT `state/province_ibfk_1` FOREIGN KEY (`country_code`) REFERENCES `country` (`code`) ON UPDATE CASCADE;
 
 --
-=======
->>>>>>> master
 -- Filtros para la tabla `toy`
 --
 ALTER TABLE `toy`

@@ -17,13 +17,13 @@ if($_POST){
 
         $pass_c = sha1($password);
 
-        if($password_bd == $pass_c){
+        if($id == $_POST['id']){
 
             $_SESSION['id'] = $row['id'];
             $_SESSION['name'] = $row['name'];
             $_SESSION['user_type'] = $row['user_type'];
 
-            header("Location: principal.php");
+            header("Location: principal_parent.php");
 
         } else {
             echo "Wrong password";
@@ -35,7 +35,6 @@ if($_POST){
 
 
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -58,9 +57,11 @@ if($_POST){
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Parent Login</h3></div>
                                     <div class="card-body">
                                         <form method = "POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                                            <input type="hidden" name="name" value="<?= $name; ?>">
+                                            <input type="hidden" name="user_type" value="<?= $user_type; ?>">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputID">ID</label>
                                                 <input class="form-control py-4" id="inputID" name= "id" type="text" placeholder="Enter ID" required/>
@@ -75,17 +76,15 @@ if($_POST){
                                                     <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
                                                 </div>
                                             </div>
-                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="index_assistant.php">First time assistant login</a>
+                                           <!-- <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                                <a class="small" href="index_assistant.php">Assistant Login</a>-->
                                                 <button type = "submit" class="btn btn-primary">
                                                 Login</button>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <div class="small"><a href="register.php">Parental account? Sign up!</a></div>
-                                        <div class="card-footer text-center">
-                                        <div class="small"><a href="index_parent.php">Parent login</a></div>
+                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
                                     </div>
                                 </div>
                             </div>
